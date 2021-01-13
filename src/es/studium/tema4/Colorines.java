@@ -1,12 +1,17 @@
 package es.studium.tema4;
 
+import java.awt.Button;
 import java.awt.Color;
 import java.awt.Frame;
 import java.awt.GridLayout;
 import java.awt.Panel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.util.Random;
 
-public class Colorines
+public class Colorines implements WindowListener, ActionListener
 {
 	Frame ventana = new Frame("Colorines");
 	Color[] colores = {
@@ -14,7 +19,7 @@ public class Colorines
 	};
 	Random rnd = new Random();
 	int posicion;
-//	Button btnAceptar = new Button("Aceptar");
+	Button btnAceptar = new Button("Aceptar");
 
 //	Constructor de la clase:
 	public Colorines() {
@@ -26,7 +31,9 @@ public class Colorines
 			p.setBackground(colores[posicion]);
 			ventana.add(p);
 		}
-			
+		btnAceptar.addActionListener(this);
+		ventana.add(btnAceptar);
+		ventana.addWindowListener(this);
 		ventana.setResizable(false);
 		ventana.setVisible(true);
 	
@@ -36,5 +43,32 @@ public class Colorines
 	{
 		new Colorines();
 	}
+
+	@Override
+	public void windowClosing(WindowEvent arg0)
+	{
+		System.out.println("Saliendo...");
+		System.exit(0);
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent arg0)
+	{
+		System.out.println("Pulsaste el botón");
+	}
+	
+	@Override
+	public void windowActivated(WindowEvent arg0){}
+	@Override
+	public void windowClosed(WindowEvent arg0){}
+	@Override
+	public void windowDeactivated(WindowEvent arg0){}
+	@Override
+	public void windowDeiconified(WindowEvent arg0){}
+	@Override
+	public void windowIconified(WindowEvent arg0){}
+	@Override
+	public void windowOpened(WindowEvent arg0){}
+
 
 }
