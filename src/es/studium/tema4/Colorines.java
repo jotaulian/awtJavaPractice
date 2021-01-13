@@ -39,10 +39,6 @@ public class Colorines implements WindowListener, ActionListener
 	
 	}
 	
-	public static void main(String[] args)
-	{
-		new Colorines();
-	}
 
 	@Override
 	public void windowClosing(WindowEvent arg0)
@@ -70,5 +66,9 @@ public class Colorines implements WindowListener, ActionListener
 	@Override
 	public void windowOpened(WindowEvent arg0){}
 
+	public static void main(String[] args)
+	{
+		new Colorines();
+	}
 
 }
